@@ -3,9 +3,9 @@ C++ script to autohide PolyBar
 
 # How to Install
 1. Clone the git repo in your home: 
-```
-git clone https://github.com/arkeane/polybar_autohide.git ~/polybar_autohide
-```
+     ```
+     git clone https://github.com/arkeane/polybar_autohide.git ~/polybar_autohide
+     ```
 
 2. Move to the script directory `cd ~/polybar_autohide`
 
@@ -18,9 +18,9 @@ git clone https://github.com/arkeane/polybar_autohide.git ~/polybar_autohide
 
 5. Autorun the script
      - If you use i3wm add this to your config file, change $USER with your username:
-       ```
-       exec --no-startup-id /home/$USER/polybar_autohide/autohide
-       ```
+          ```
+          exec --no-startup-id /home/$USER/polybar_autohide/autohide
+          ```
      - If not just use your usual autostart system.
 
 # How to use Hotkeys
