@@ -15,3 +15,6 @@ C++ script to autohide PolyBar
 5. Autorun the script
      - If you use i3wm add this `exec --no-startup-id ~/polybar_autohide/autohide`
      - If not just use your usual startup launch system.
+
+
+If you want to support me paypal.me/LudovicoPestarino
