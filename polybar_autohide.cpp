@@ -4,6 +4,7 @@
 #include<unistd.h>
 #include<sstream>
 #include<string>
+#include<fstream>
 using namespace std;
 
 //shell scripts
@@ -56,26 +57,48 @@ void windowpresence(int& w){
 	}
 }
 
+void keybinding(int& k){
+	fstream fin;
+	fin.open(".togglefile", ios::in);
+	fin >> k;
+	fin.close();
+}
+
 int main(){
+	//inizialize toggle file
+	fstream fout;
+	fout.open(".togglefile", ios::out);
+	fout << 0;
+	fout.close();
+
 	int y = 0;
 	int w = 0;
+	int k = 0;
+	//Infinite loop
 	while(true){
-	// get y pointer
-	getpointerY(y);	
-	// detect window presence
-	windowpresence(w);
-	if(y <= polybar_height){
-		system(show);
-	}
-	else{
-		//check if windows are displayed
-		if(w == 0){
+		// detect keybinding
+		keybinding(k);
+		// get y pointer
+		getpointerY(y);	
+		// detect window presence
+		windowpresence(w);
+		if(k == 1){
 			system(show);
 		}
 		else{
-			system(hide);
+			if(y <= polybar_height){
+				system(show);
+			}
+			else{
+				//check if windows are displayed
+				if(w == 0){
+					system(show);
+				}
+				else{
+					system(hide);
+				}
+			}
 		}
-	}
-	sleep(1);
+		sleep(1);
 	}
 return 0;}

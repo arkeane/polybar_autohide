@@ -16,5 +16,12 @@ C++ script to autohide PolyBar
      - If you use i3wm add this `exec --no-startup-id ~/polybar_autohide/autohide`
      - If not just use your usual startup launch system.
 
+# How to use Hotkeys
+1. The program automatically create a file `~/.togglefile` that contains a value (0 or 1) read by the script.
+
+2. To use the toggle you have to bind the script `~/polybar_autohide/toggle.sh` with wathever you want
+     - Remember to run `chmod u+x ~/polybar_autohide/toggle.sh` to make it executable
+     - Bind the script with your favourite binding system 
+
 
 If you want to support me [PayPalMe](paypal.me/LudovicoPestarino)
