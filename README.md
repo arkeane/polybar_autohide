@@ -7,8 +7,9 @@ C++ script to autohide PolyBar
 2. Move to the script directory `cd ~/polybar_autohide`
 
 3. Make adjustments to the script
-     - You should adjust polybar_height definition to your actual height.
-     - If you have more bars try to add a new condition for other bars height (I haven't tested this yet but it shoul work)
+     - You can adjust polybar_height definition to change sensibility.
+     - You can also change paths but be carefull!!!
+     - If you have more bars try to add a new condition for other bars height (I haven't tested this yet but it should work)
   
 4. Compile the script `g++ polybar_autohide.cpp -o autohide`
 
