@@ -2,7 +2,10 @@
 C++ script to autohide PolyBar
 
 # How to Install
-1. Clone the git repo in your home `git clone https://github.com/arkeane/polybar_autohide.git ~/polybar_autohide`
+1. Clone the git repo in your home: 
+```
+git clone https://github.com/arkeane/polybar_autohide.git ~/polybar_autohide
+```
 
 2. Move to the script directory `cd ~/polybar_autohide`
 
@@ -15,7 +18,9 @@ C++ script to autohide PolyBar
 
 5. Autorun the script
      - If you use i3wm add this to your config file, change $USER with your username:
-          `exec --no-startup-id /home/$USER/polybar_autohide/autohide`
+       ```
+       exec --no-startup-id /home/$USER/polybar_autohide/autohide
+       ```
      - If not just use your usual autostart system.
 
 # How to use Hotkeys
@@ -24,7 +29,9 @@ C++ script to autohide PolyBar
 2. To use the toggle you have to bind the script `~/polybar_autohide/toggle.sh` with wathever you want
      - Remember to run `chmod u+x ~/polybar_autohide/toggle.sh` to make it executable
      - For i3wm users add thi to your config file, change $USER with your username and the binding if you want:
-          `bindsym $mod+Shift+p exec --no-startup-id /home/$USER/polybar_autohide/toggle.sh`
+          ```
+          bindsym $mod+Shift+p exec --no-startup-id /home/$USER/polybar_autohide/toggle.sh
+          ```
      - For other users, bind the script with your favourite binding system 
 
 
