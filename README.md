@@ -17,4 +17,4 @@ C++ script to autohide PolyBar
      - If not just use your usual startup launch system.
 
 
-If you want to support me paypal.me/LudovicoPestarino
+If you want to support me [PayPalMe](paypal.me/LudovicoPestarino)
