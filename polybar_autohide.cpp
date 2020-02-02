@@ -10,9 +10,16 @@
 using namespace std;
 
 //shell scripts
-#define windownumber "xdotool search --all --onlyvisible --desktop $(xprop -notype -root _NET_CURRENT_DESKTOP | cut -c 24-) \"\" 2>/dev/null | tr -d 'Defaulting to search window name, class, and classname'"
+#define windowlist "xdotool search --all --onlyvisible --desktop $(xprop -notype -root _NET_CURRENT_DESKTOP |\
+                    cut -c 24-) \"\" 2>/dev/null |\
+					tr -d 'Defaulting to search window name, class, and classname' > .windowlist"
+
+#define windowcount "wc -l .windowlist |\
+					 tr -d ' .windowlist'"
+
 #define show "xdo show -N Polybar"
 #define hide "xdo hide -N Polybar"
+
 //variables
 #define polybar_height 30
 
@@ -43,10 +50,6 @@ return data;
 void getpointerY(int &y){
 	// Setup display and such
     char *display_name = getenv("DISPLAY");
-    if (!display_name) {
-        exit(1);
-    }
-
     Display *display = XOpenDisplay(display_name);
     int screen = DefaultScreen(display);
 
@@ -59,21 +62,14 @@ void getpointerY(int &y){
         &root_x, &root_y, &win_x, &y, &mask);
 }
 
-
-void windowpresence(int& w){
+void windowcounter(unsigned int& w){
+	system(windowlist);
 	string result;
-	result = GetStdoutFromCommand(windownumber);
-	//convert just the first string to int
-	if(result == ""){
-		w = 0;
-	}
-	else
-	{
+	result = GetStdoutFromCommand(windowcount);
 	int num;
 	std::istringstream iss (result);
 	iss >> num;
 	w = num;
-	}
 }
 
 void keybinding(int& k){
@@ -86,7 +82,8 @@ void keybinding(int& k){
 int main(){
 	//inizialization
 	togglefile();
-	int y, w, k = 0;
+	int y, k = 0;
+	unsigned int w = 0;
 	//Infinite loop
 	while(true){
 		// detect keybinding
@@ -94,7 +91,7 @@ int main(){
 		// get y pointer
 		getpointerY(y);
 		// detect window presence
-		windowpresence(w);
+		windowcounter(w);
 		if(k == 1){
 			system(show);
 		}
@@ -105,9 +102,11 @@ int main(){
 			else{
 				//check if windows are displayed
 				if(w == 0){
+					//cout << w << endl;
 					system(show);
 				}
 				else{
+					//cout << w << endl;
 					system(hide);
 				}
 			}
