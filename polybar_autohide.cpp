@@ -15,6 +15,14 @@ using namespace std;
 //variables
 #define polybar_height 30
 
+void togglefile(){
+	//inizialize toggle file
+	fstream fout;
+	fout.open(".togglefile", ios::out);
+	fout << 0;
+	fout.close();
+}
+
 //read shell command and put in a string string
 string GetStdoutFromCommand(string cmd) {
     string data;
@@ -65,15 +73,9 @@ void keybinding(int& k){
 }
 
 int main(){
-	//inizialize toggle file
-	fstream fout;
-	fout.open(".togglefile", ios::out);
-	fout << 0;
-	fout.close();
-
-	int y = 0;
-	int w = 0;
-	int k = 0;
+	//inizialization
+	togglefile();
+	int y, w, k = 0;
 	//Infinite loop
 	while(true){
 		// detect keybinding
