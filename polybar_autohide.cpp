@@ -10,13 +10,8 @@
 using namespace std;
 
 //shell scripts
-#define windowlist "xdotool search --all --onlyvisible --desktop $(xprop -notype -root _NET_CURRENT_DESKTOP |\
-                    cut -c 24-) \"\" 2>/dev/null |\
-					tr -d 'Defaulting to search window name, class, and classname' > .windowlist"
-
-#define windowcount "wc -l .windowlist |\
-					 tr -d ' .windowlist'"
-
+#define windowlist "xdotool search --all --onlyvisible --desktop $(xprop -notype -root _NET_CURRENT_DESKTOP | cut -c 24-) \"\" 2>/dev/null | tr -d 'Defaulting to search window name, class, and classname' > .windowlist"
+#define windowcount "wc -l .windowlist | tr -d ' .windowlist'"
 #define show "xdo show -N Polybar"
 #define hide "xdo hide -N Polybar"
 
