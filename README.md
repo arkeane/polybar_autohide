@@ -6,6 +6,7 @@ Polybar is a beautiful bar but in some cases for example if you have a small scr
      ```
      git clone https://github.com/arkeane/polybar_autohide.git ~/polybar_autohide
      ```
+     - Install nedeed software: `polybar` `xdotool` `xdo`
 
 2. Move to the script directory `cd ~/polybar_autohide`
 
@@ -35,5 +36,8 @@ Polybar is a beautiful bar but in some cases for example if you have a small scr
           ```
      - For other users, bind the script with your favourite binding system 
 
+# Known Problems
+- Dual monitor setup works but in a strange way (Still working on it)
+- Trying to convert all the shell commands to c++ syntax to avoid external programs
 
 If you want to support me [PayPalMe](paypal.me/LudovicoPestarino)
