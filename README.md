@@ -22,9 +22,10 @@ Polybar is a beautiful bar but in some cases for example if you have a small scr
           exec --no-startup-id /home/$USER/polybar_autohide/autohide
           ```
      - If not just use your usual autostart system.
+     - The script create a file `~/.windowlist` for the windowcounter function DO NOT DELETE.
 
 # How to use Hotkeys
-1. The program automatically create a file `~/.togglefile` that contains a value (0 or 1) read by the script.
+1. The program automatically create a file `~/.togglefile` that contains a value (0 or 1) read by the script DO NOT DELETE.
 
 2. To use the toggle you have to bind the script `~/polybar_autohide/toggle.sh` with wathever you want
      - Remember to run `chmod u+x ~/polybar_autohide/toggle.sh` to make it executable
