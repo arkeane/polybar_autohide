@@ -1,5 +1,5 @@
 # PolyBar_Autohide
-C++ script to autohide PolyBar
+Polybar is a beautiful bar but in some cases for example if you have a small screen it might take too much space so I've made a simple script that hide Polybar when there are windows in the current workspace, the script shows the bar if you move the cursor where the bar is or if you don't have any windows in the workspace that you're using.
 
 # How to Install
 1. Clone the git repo in your home: 
