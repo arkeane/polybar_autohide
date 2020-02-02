@@ -14,7 +14,7 @@ C++ script to autohide PolyBar
      - You can also change paths but be carefull!!!
      - If you have more bars try to add a new condition for other bars height (I haven't tested this yet but it should work)
   
-4. Compile the script `g++ polybar_autohide.cpp -o autohide`
+4. Compile the script `g++ polybar_autohide.cpp -o autohide -lX11`
 
 5. Autorun the script
      - If you use i3wm add this to your config file, change $USER with your username:
