@@ -5,11 +5,12 @@
 #include<sstream>
 #include<string>
 #include<fstream>
+#include <X11/Xlib.h>
+#include <X11/Xutil.h>
 using namespace std;
 
 //shell scripts
 #define windownumber "xdotool search --all --onlyvisible --desktop $(xprop -notype -root _NET_CURRENT_DESKTOP | cut -c 24-) \"\" 2>/dev/null | tr -d 'Defaulting to search window name, class, and classname'"
-#define pointeryposition "xdotool getmouselocation --shell |grep Y= | tr -d 'Y='"
 #define show "xdo show -N Polybar"
 #define hide "xdo hide -N Polybar"
 //variables
@@ -31,15 +32,25 @@ string GetStdoutFromCommand(string cmd) {
 return data;
 }
 
-void getpointerY(int& y){
-	string result;
-	result = GetStdoutFromCommand(pointeryposition);
-	//convert the y position to int
-	int num;
-	std::istringstream iss (result);
-	iss >> num;
-	y = num;
+void getpointerY(int &y){
+	// Setup display and such
+    char *display_name = getenv("DISPLAY");
+    if (!display_name) {
+        exit(1);
+    }
+
+    Display *display = XOpenDisplay(display_name);
+    int screen = DefaultScreen(display);
+
+    // Get the mouse cursor position
+    int win_x, root_x, root_y = 0;
+    unsigned int mask = 0;
+    Window child_win, root_win;
+    XQueryPointer(display, XRootWindow(display, screen),
+        &child_win, &root_win,
+        &root_x, &root_y, &win_x, &y, &mask);
 }
+
 
 void windowpresence(int& w){
 	string result;
@@ -71,15 +82,13 @@ int main(){
 	fout << 0;
 	fout.close();
 
-	int y = 0;
-	int w = 0;
-	int k = 0;
+	int y, w, k = 0;
 	//Infinite loop
 	while(true){
 		// detect keybinding
 		keybinding(k);
 		// get y pointer
-		getpointerY(y);	
+		getpointerY(y);
 		// detect window presence
 		windowpresence(w);
 		if(k == 1){
@@ -101,4 +110,5 @@ int main(){
 		}
 		sleep(1);
 	}
-return 0;}
+return 0;
+}
