@@ -9,7 +9,6 @@ Polybar is a beautiful bar but in some cases for example if you have a small scr
      - Install nedeed software: `polybar` `xdotool` `xdo`
 
 2. Move to the script directory `cd ~/polybar_autohide`
-     - Run `chmod u+x ~/polybar_autohide/launch.sh`
      
 3. Make adjustments to the script
      - You can adjust polybar_height definition to change sensibility.
