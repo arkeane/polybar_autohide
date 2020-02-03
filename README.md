@@ -15,17 +15,19 @@ Polybar is a beautiful bar but in some cases for example if you have a small scr
      - You can adjust polybar_height definition to change sensibility.
      - You can also change paths but be carefull!!!
 
-4. Autostart the script
-     - Add the `launch.sh` file to your autostart system
+4. Compile the script `g++ polybar_autohide.cpp -o autohide -lX11`
+
+5. Autostart the script
+     - Add the `autohide` file to your autostart system
           - If you use i3wm add this to your config file, change $USER with your username:
                ```
-               exec --no-startup-id /home/$USER/polybar_autohide/launch.sh
+               exec --no-startup-id /home/$USER/polybar_autohide/autohide
                ```
           - If not just use your usual autostart system.
-     - The script create a file `~/polybar_autohide/.windowlist` for the windowcounter function DO NOT DELETE.
+     - The script create a file `~/.windowlist` for the windowcounter function DO NOT DELETE.
 
 # How to use Hotkeys
-1. The program automatically create a file `~/polybar_autohide/.togglefile` that contains a value (0) read by the script DO NOT DELETE.
+1. The program automatically create a file `~/.togglefile` that contains a value (0) read by the script DO NOT DELETE.
 
 2. To use the toggle you have to bind the script `~/polybar_autohide/toggle.sh` with wathever you want
      - Remember to run `chmod u+x ~/polybar_autohide/toggle.sh` to make it executable

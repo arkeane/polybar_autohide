@@ -1,8 +1,7 @@
 #!/bin/sh
-cd ~/polybar_autohide
-line=$(head -n 1 ~/polybar_autohide/.togglefile)
+line=$(head -n 1 ~/.togglefile)
 if [ $line = 0 ]; then
-    echo 1 > ~/polybar_autohide/.togglefile
+    echo 1 > ~/.togglefile
 else
-    echo 0 > ~/polybar_autohide/.togglefile
+    echo 0 > ~/.togglefile
 fi
