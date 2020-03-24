@@ -12,8 +12,6 @@ using namespace std;
 #define pointeryposition "xdotool getmouselocation --shell |grep Y= | tr -d 'Y='"
 #define show "xdo show -N Polybar"
 #define hide "xdo hide -N Polybar"
-//variables
-#define polybar_height 30
 
 void togglefile(){
 	//inizialize toggle file
@@ -88,7 +86,7 @@ int main(){
 			system(show);
 		}
 		else{
-			if(y <= polybar_height){
+			if(y <= 5){
 				system(show);
 			}
 			else{
