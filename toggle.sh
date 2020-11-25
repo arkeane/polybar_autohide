@@ -1,7 +1,8 @@
 #!/bin/sh
-line=$(head -n 1 ~/.togglefile)
+TOGGLEFILE="$HOME/.cache/polybar-togglefile"
+line=$(head -n 1 "$TOGGLEFILE")
 if [ $line = 0 ]; then
-    echo 1 > ~/.togglefile
+    echo 1 > "$TOGGLEFILE"
 else
-    echo 0 > ~/.togglefile
+    echo 0 > "$TOGGLEFILE"
 fi
