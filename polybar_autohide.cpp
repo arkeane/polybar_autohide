@@ -10,13 +10,33 @@
 
 using namespace std;
 
+// CONFIG OPTIONS
+
+// the margin at the top that will trigger polybar showing
+#define MARGIN_TOP 5
+
+// the margin that will hide polybar if mouse is moved away
+#define MARGIN_HIDE_TOP 50
+
+// delay for each loop in milliseconds, 
+// set lower for more responsiveness, or
+// higher for less resource usage
+#define LOOP_DELAY 200
+
+// delay for cursor and window positions in milliseconds,
+// cursor must be kept for this time at the top,
+// or window must be hidden for this time
+// before polybar will show
+#define CURSOR_WINDOW_DELAY 200
+
+#define DEBUG false
+
 // shell scripts
 #define windownumber "xdotool search --all --onlyvisible --desktop $(xprop -notype -root _NET_CURRENT_DESKTOP | cut -c 24-) \"\" 2>/dev/null | tr -d 'Defaulting to search window name, class, and classname'"
 #define pointeryposition "xdotool getmouselocation --shell |grep Y= | tr -d 'Y='"
 #define show "xdo show -N Polybar"
 #define hide "xdo hide -N Polybar"
 
-#define DEBUG false
 
 // read shell command and put in a string string
 string getStdoutFromCommand(string cmd) {
@@ -92,7 +112,7 @@ int main(){
             if (polybarShown == 0) {
                 // put a slight delay so this doesn't show
                 // when changing i3 workspaces
-                std::this_thread::sleep_for(std::chrono::milliseconds(200));
+                this_thread::sleep_for(chrono::milliseconds(CURSOR_WINDOW_DELAY));
                 windowPresence(windowPresent);
 
                 // if there is still no window
@@ -104,13 +124,13 @@ int main(){
         } else if (polybarShown == 0) {
             // if there is a window and polybar is hidden
             // we want to unhide it if mouse is at the top
-            if (y <= 5) {
+            if (y <= MARGIN_TOP) {
                 // have a slight delay so accidental mouse movements don't trigger
-                std::this_thread::sleep_for(std::chrono::milliseconds(200));
+                this_thread::sleep_for(chrono::milliseconds(CURSOR_WINDOW_DELAY));
                 getPointerY(y);
                 
                 // if mouse is still at top
-                if (y <= 5) {
+                if (y <= MARGIN_TOP) {
                     polybarShown = 1;
                     system(show);
                 }
@@ -118,13 +138,13 @@ int main(){
         } else {
             // else, there is a window, and polybar is shown,
             // we want to hide it if mouse moves away
-            if (y > 50 && polybarShown > 0) {
+            if (y > MARGIN_HIDE_TOP && polybarShown > 0) {
                 polybarShown = 0;
                 system(hide);
             }
         }
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(200));
+        this_thread::sleep_for(chrono::milliseconds(LOOP_DELAY));
 	}
     return 0;
 }

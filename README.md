@@ -23,7 +23,6 @@ Polybar is a beautiful bar but in some cases for example if you have a small scr
                exec --no-startup-id /home/$USER/polybar_autohide/polybar-autohide
                ```
           - If not just use your usual autostart system.
-     - The script create a file `~/.windowlist` for the windowcounter function DO NOT DELETE.
 
 ## Changes from upstream
 - Removed hotkey support to avoid file I/O, since I'm not using it anyway
@@ -35,4 +34,4 @@ Polybar is a beautiful bar but in some cases for example if you have a small scr
 - Trying to convert all the shell commands to c++ syntax to avoid external programs
 - Multiple bars support
 
-If you want to support me (upstream dude) [PayPalMe](paypal.me/LudovicoPestarino)
+If you want to support me (upstream person) [PayPalMe](https://paypal.me/LudovicoPestarino)
