@@ -33,6 +33,6 @@ Polybar is a beautiful bar but in some cases for example if you have a small scr
 
 ## To Do
 - Dual monitor
-- Convert all the shell commands to c++
+- Convert all the bash commands to C++
 - Multiple bars support
 - Hotkey functionality 
