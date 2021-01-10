@@ -24,14 +24,14 @@ Polybar is a beautiful bar but in some cases for example if you have a small scr
                ```
           - If not just use your usual autostart system.
 
-## Changes from upstream
-- Removed hotkey support to avoid file I/O, since I'm not using it anyway
+## Changes from taipan-snake
+- Removed hotkey support to avoid file I/O.
 - Added some delays for mouse movements and window presence
 - Tried to minimize calls to external calls by keeping more state in the script, to keep the script lightweight
 
-## Known Problems (working on, but upstream not by me)
+## Known Problems
 - Dual monitor setup works but in a strange way 
 - Trying to convert all the shell commands to c++ syntax to avoid external programs
 - Multiple bars support
 
-If you want to support me (upstream person) [PayPalMe](https://paypal.me/LudovicoPestarino)
+If you want to support me [PayPalMe](https://paypal.me/LudovicoPestarino)
