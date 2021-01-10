@@ -1,4 +1,7 @@
 # PolyBar_Autohide
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LZDKH4PL5Z3XN&source=url)
+
 Polybar is a beautiful bar but in some cases for example if you have a small screen it might take too much space so I've made a simple script that hide Polybar when there are windows in the current workspace, the script shows the bar if you move the cursor where the bar is or if you don't have any windows in the workspace that you're using.
 
 ## How to Install
@@ -33,5 +36,3 @@ Polybar is a beautiful bar but in some cases for example if you have a small scr
 - Dual monitor setup works but in a strange way 
 - Trying to convert all the shell commands to c++ syntax to avoid external programs
 - Multiple bars support
-
-If you want to support me [PayPalMe](https://paypal.me/LudovicoPestarino)
