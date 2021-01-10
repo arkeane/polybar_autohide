@@ -14,8 +14,7 @@ Polybar is a beautiful bar but in some cases for example if you have a small scr
 2. Move to the script directory `cd ~/polybar_autohide`
      
 3. Make adjustments to the script
-     - You can adjust polybar_height definition to change sensibility.
-     - You can also change paths but be carefull!!!
+     - You can adjust settings in the source code
 
 4. Compile the script `make`
 
@@ -27,12 +26,13 @@ Polybar is a beautiful bar but in some cases for example if you have a small scr
                ```
           - If not just use your usual autostart system.
 
-## Changes from taipan-snake
+## Changes made by taipan-snake
 - Removed hotkey support to avoid file I/O.
 - Added some delays for mouse movements and window presence
 - Tried to minimize calls to external calls by keeping more state in the script, to keep the script lightweight
 
-## Known Problems
-- Dual monitor setup works but in a strange way 
-- Trying to convert all the shell commands to c++ syntax to avoid external programs
+## To Do
+- Dual monitor
+- Convert all the shell commands to c++
 - Multiple bars support
+- Hotkey functionality 
