@@ -1,4 +1,5 @@
 #!/bin/sh
+# DISABLED
 TOGGLEFILE="$HOME/.cache/polybar-togglefile"
 line=$(head -n 1 "$TOGGLEFILE")
 if [ $line = 0 ]; then
