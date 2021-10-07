@@ -1,5 +1,5 @@
 autohide: polybar_autohide.cpp
-	g++ -o polybar-autohide polybar_autohide.cpp -lX11
+	g++ -o polybar_autohide polybar_autohide.cpp -lX11
 
 clean:
-	rm polybar-autohide
+	rm polybar_autohide
