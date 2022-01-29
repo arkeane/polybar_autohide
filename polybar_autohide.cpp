@@ -14,7 +14,7 @@ using namespace std;
 
 // change top bar or bottom?
 #define USE_TOP_BAR 1
-#define USE_BOTTOM_BAR 1
+#define USE_BOTTOM_BAR 0
 
 // the margin at the top that will trigger polybar showing
 #define MARGIN_TOP 5
