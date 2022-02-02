@@ -26,13 +26,3 @@ Polybar is a beautiful bar but in some cases for example if you have a small scr
                ```
           - If not just use your usual autostart system.
 
-## Changes made by taipan-snake
-- Removed hotkey support to avoid file I/O.
-- Added some delays for mouse movements and window presence
-- Tried to minimize calls to external calls by keeping more state in the script, to keep the script lightweight
-
-## To Do
-- Dual monitor
-- Convert all the bash commands to C++
-- Multiple bars support
-- Hotkey functionality 
