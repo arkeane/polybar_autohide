@@ -12,11 +12,17 @@ using namespace std;
 
 // CONFIG OPTIONS
 
+// change top bar or bottom?
+#define USE_TOP_BAR 1
+#define USE_BOTTOM_BAR 0
+
 // the margin at the top that will trigger polybar showing
 #define MARGIN_TOP 5
+#define MARGIN_BOTTOM 1015
 
 // the margin that will hide polybar if mouse is moved away
 #define MARGIN_HIDE_TOP 50
+#define MARGIN_HIDE_BOTTOM 1010
 
 // delay for each loop in milliseconds, 
 // set lower for more responsiveness, or
@@ -122,9 +128,16 @@ int main(){
                 }
             }
         } else if (polybarShown == 0) {
+            
+            // check if user set both polybars on use
+            if (USE_TOP_BAR == 1 && USE_BOTTOM_BAR == 1) {
+                std::cout << "Error: Choose only top or bottom bar." << std::endl;
+            }
+            
             // if there is a window and polybar is hidden
             // we want to unhide it if mouse is at the top
-            if (y <= MARGIN_TOP) {
+            if (USE_TOP_BAR == 1 && USE_BOTTOM_BAR == 0) {
+                if (y <= MARGIN_TOP) {
                 // have a slight delay so accidental mouse movements don't trigger
                 this_thread::sleep_for(chrono::milliseconds(CURSOR_WINDOW_DELAY));
                 getPointerY(y);
@@ -135,12 +148,36 @@ int main(){
                     system(show);
                 }
             }
+            
+            } else if (USE_TOP_BAR == 0 && USE_BOTTOM_BAR == 1) {
+                if (y >= MARGIN_BOTTOM) {
+                // have a slight delay so accidental mouse movements don't trigger
+                this_thread::sleep_for(chrono::milliseconds(CURSOR_WINDOW_DELAY));
+                getPointerY(y);
+                
+                // if mouse is still at top
+                    if (y >= MARGIN_BOTTOM) {
+                        polybarShown = 1;
+                        system(show);
+                    }
+                }
+            }
         } else {
             // else, there is a window, and polybar is shown,
             // we want to hide it if mouse moves away
-            if (y > MARGIN_HIDE_TOP && polybarShown > 0) {
+            
+            if (USE_TOP_BAR == 1 && USE_BOTTOM_BAR == 0) {
+                if (y > MARGIN_HIDE_TOP && polybarShown > 0) {
                 polybarShown = 0;
                 system(hide);
+                }
+                
+            } else if (USE_TOP_BAR == 0 && USE_BOTTOM_BAR == 1) {
+                if (y < MARGIN_HIDE_BOTTOM && polybarShown > 0) {
+                polybarShown = 0;
+                system(hide);
+                }
+            
             }
         }
 
