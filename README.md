@@ -1,7 +1,7 @@
 # PolyBar_Autohide
 
-Polybar autohide is a programs that implements autohide features for polybar and other status bars.
-Polybar_autohide is wm agnostic and bar agnostic, it should work with any wm and bar only on X11.
+PolyBar_Autohide is a programs that implements autohide features for polybar and other status bars.
+PolyBar_Autohide is wm agnostic and bar agnostic, it should work with any wm and bar only on X11.
 
 ## How to Install
 
