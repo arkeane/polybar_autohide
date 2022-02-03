@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <xdo.h>
 #include <string.h>
 
@@ -7,19 +8,19 @@
 
 // The Window Class of your status bar 
 // WM_CLASS(STRING)
-#define BAR_WM_CLASS "polybar"
+#define BAR_WM_CLASS "dwm"
 
 // change top bar or bottom?
 #define USE_TOP_BAR 1
 #define USE_BOTTOM_BAR 0
 
 // the margin at the top that will trigger polybar showing in Pixels
-#define MARGIN_TOP 10
+#define MARGIN_TOP 50
 #define MARGIN_BOTTOM 1080
 
 // the margin that will hide polybar if mouse is moved away in Pixels
 #define MARGIN_HIDE_TOP 30
-#define MARGIN_HIDE_BOTTOM 1070
+#define MARGIN_HIDE_BOTTOM 1080
 
 // delay for each loop in milliseconds,
 // set lower for more responsiveness, or
@@ -31,11 +32,3 @@
 // or window must be hidden for this time
 // before polybar will show
 #define CURSOR_WINDOW_DELAY 300
-
-// aux functions
-
-void fail(const char *const msg)
-{
-	fprintf(stderr, "%s\n", msg);
-	exit(EXIT_FAILURE);
-}
