@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# store mouse location 
 mx=$(xdotool getmouselocation | awk '{print $1}' | awk -F ':' '{print $2}')
 my=$(xdotool getmouselocation | awk '{print $2}' | awk -F ':' '{print $2}')
 
@@ -8,6 +9,8 @@ xdotool mousemove 0 0
 windowid=$(xdotool getmouselocation | awk '{print $4}' | awk '{gsub(/\window:/,"");}1')
 wmclass=$(xprop -id $windowid | awk '/WM_CLASS/{print $4}' | awk '{gsub(/"/,"");}1')
 
+# print the WM_CLASS
 echo $wmclass
 
+# restore mouse location
 xdotool mousemove $mx $my
