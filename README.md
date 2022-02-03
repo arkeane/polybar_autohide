@@ -11,11 +11,9 @@ Polybar_autohide is wm agnostic and bar agnostic, it should work with any wm and
      git clone https://github.com/arkeane/polybar_autohide.git ~/polybar_autohide
      ```
 
-     - Install dependencies: `polybar`(or other bars), `xdotool`, `xdo` and `xprop`
+     - Install dependencies: `libxdo-dev` from [xdotool](https://github.com/jordansissel/xdotool)
 
-2. Move to the script directory `cd ~/polybar_autohide`
-
-3. Make adjustments to the script directly from the source code `autohide.h`.
+2. Make adjustments to the script directly from the source code `autohide.h`.
 
      - To find the WM_CLASS of your bar you can use the `getwmclass.sh` script.
 
@@ -23,9 +21,9 @@ Polybar_autohide is wm agnostic and bar agnostic, it should work with any wm and
           ./getwmclass.sh
           ```
 
-4. Compile the script  with `make`
+3. Compile the script  with `make`
 
-5. Run the script with whatever kind of startup script you are using.
+4. Run the script with whatever kind of startup script you are using.
 
      ```[bash]
      ./autohide &
