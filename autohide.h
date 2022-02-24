@@ -8,7 +8,7 @@
 
 // The Window Class of your status bar 
 // WM_CLASS(STRING)
-#define BAR_WM_CLASS "dwm"
+#define BAR_WM_CLASS "Bar"
 
 // change top bar or bottom?
 #define USE_TOP_BAR 1
