@@ -13,3 +13,4 @@ Here are a few ideas for what is missing:
 - Make the programm show the bar if it is the only window on the screen (depends on various window managers implementations)
 - Hotkeys support (e.g. `ctrl+alt+h` to show/hide the bar)
 - A better way to get the bar window id directly.
+- Add a way to show bar when closing program (maybe using SIGNALS)
