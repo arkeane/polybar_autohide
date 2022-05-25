@@ -32,3 +32,7 @@
 // or window must be hidden for this time
 // before polybar will show
 #define CURSOR_WINDOW_DELAY 300
+
+// check if the currently active window is fullscreen
+// do not show the bar if it is
+#define CHECK_FULLSCREEN 0
