@@ -21,6 +21,32 @@ Window *getBar(xdo_t *xdo) {
     return bar;
 }
 
+int activeWindowIsFullscreen(xdo_t *xdo) {
+    int fullscreen = 0;
+    Window window;
+    long nitems;
+    unsigned char *states;
+
+    int ret = xdo_get_active_window(xdo, &window);
+    if (ret == XDO_ERROR || window == 0)
+        return 0;
+
+    ret = xdo_get_window_property(xdo, window, "_NET_WM_STATE", &states, &nitems, NULL, NULL);
+    if (ret == XDO_ERROR)
+        return 0;
+
+    char *state;
+    for (int i = 0; i < nitems; ++i) {
+        state = XGetAtomName(xdo->xdpy, ((Atom*)states)[i]);
+        if (strcmp(state, "_NET_WM_STATE_FULLSCREEN") == 0)
+            fullscreen = 1;
+        XFree(state);
+    }
+    free(states);
+
+    return fullscreen;
+}
+
 int main(){
     // init xdo
     xdo_t *xdo = xdo_new(NULL);
@@ -38,6 +64,12 @@ int main(){
     int y = 0;
     bool hidden = false;
     while (1) {
+        // check if active window is fullscreen
+        if (hidden && CHECK_FULLSCREEN && activeWindowIsFullscreen(xdo)) {
+            usleep(LOOP_DELAY * 1000);
+            continue;
+        }
+
         // get mouse location
         xdo_get_mouse_location(xdo, NULL, &y, NULL);
 
