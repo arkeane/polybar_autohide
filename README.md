@@ -21,13 +21,11 @@ PolyBar_Autohide is wm agnostic and bar agnostic, it should work with any wm and
           ./getwmclass.sh
           ```
 
-3. Compile the script  with `make`
+3. Compile the script  with `make` or install it to `/usr/bin/autohide` with `make install`
 
 4. Run the script with whatever kind of startup script you are using.
 
-     ```[bash]
-     ./autohide &
-     ```
+5. Uninstall with `make uninstall`
 
 ________________________________________________________________________________
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LZDKH4PL5Z3XN&source=url)
