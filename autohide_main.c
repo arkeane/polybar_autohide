@@ -29,11 +29,11 @@ int activeWindowIsFullscreen(xdo_t *xdo) {
 
     int ret = xdo_get_active_window(xdo, &window);
     if (ret == XDO_ERROR || window == 0)
-        return 0;
+        fail("ERROR: xdo_get_active_window");
 
     ret = xdo_get_window_property(xdo, window, "_NET_WM_STATE", &states, &nitems, NULL, NULL);
     if (ret == XDO_ERROR)
-        return 0;
+        fail("ERROR: xdo_get_window_property");
 
     char *state;
     for (int i = 0; i < nitems; ++i) {
@@ -51,13 +51,13 @@ int main(){
     // init xdo
     xdo_t *xdo = xdo_new(NULL);
     if (xdo == NULL) {
-        fail("Failed to initialize xdo");
+        fail("ERROR: Failed to initialize xdo");
     }
 
     // get bar window object
     Window *bar = getBar(xdo);
     if (bar == NULL) {
-        fail("Failed to find bar");
+        fail("ERROR: Failed to find bar");
     }
 
     // main loop
